@@ -9,12 +9,12 @@ app.get('/',(req,res)=>{
 app.post('/hello',(req,res)=>{
     
     var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://127.0.0.1:27017";
+var url = "mongodb+srv://singhpratham191:SCiZ2fxBUUjLuk0l@login.hunot0h.mongodb.net/";
 const client =new MongoClient(url);
 
 async function  connect(){
     const result= await client.connect()
-    let db= await result.db('login')
+    let db= await result.db('ogin')
     let db2= await db.collection('users')
     db2.insertOne(req.body)
 }
@@ -22,4 +22,4 @@ connect()
 })
 
 
-app.listen(process.env.PORT)
+app.listen(3000||process.env.PORT)
